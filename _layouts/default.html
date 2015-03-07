@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-     <meta charset='utf-8'>
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="Songjl.GitHub.com : 宋江凌的个人blog">
 
@@ -21,12 +21,21 @@
     </div>
     <aside>
     </aside>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <article>
+          {{ content }}
+        </article>
+      </section>
+    </div>
 
-    <article>
-{{ content }}
-    </article>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
 
-    <footer>
-    </footer>
   </body>
 </html>
