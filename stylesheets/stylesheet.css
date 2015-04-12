@@ -423,3 +423,7 @@ Small Device Styles
   }
 
 }
+/*fix*/
+header h2,header h3{
+  color:#FFF;
+}
