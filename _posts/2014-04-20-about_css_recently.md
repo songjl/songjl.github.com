@@ -33,7 +33,10 @@ css知识实际应用积累
   好像华为的部分机型在浏览器中不支持这个属性，需要再找机器验证一下。
 
 4.background-size
-  例如在iphone中，你需要一张400*400的图片，来实现页面中<img width="200px" height="200px"> 
+  例如在iphone中，你需要一张400*400的图片，来实现页面中
+
+  <img width="200px" height="200px">
+   
   同时设置
 
   background-size:200px;
