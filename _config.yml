@@ -1,4 +1,4 @@
-baseurl: /songjl
+baseurl: /songjl.github.io
 markdown: redcarpet
 safe: false
 pygments: true
