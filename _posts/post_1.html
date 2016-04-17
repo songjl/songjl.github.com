@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>风知的博客 songjl.github.io by songjl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+</head>
+<body class="markdown-body">
+<div class="container">
+    <h1 id="bootstrap-treeselect">Bootstrap-treeselect</h1>
+    <h4 id="基于boostrap和jquery的下拉树控件">基于boostrap和jquery的下拉树控件</h4>
+    <p>传统下拉树，下拉框里出一个类似ztree的树控件，用起来简直烦透了有没有，层级太多的时候点➕继续点➕ 又小又不好点有木有。 所以才要做一个方便点击的下拉树。 功能还不全，凑合用吧哈哈哈。 话不多说 直接点下面的demo看看效果吧</p>
+    <h4 id="项目地址"><a target="_blank" href="https://github.com/songhlc/bootstrap-treeselect">项目地址</a></h4>
+    <h4 id="demo地址"><a target="_blank" href="../demo/bstreeselectdemo.html">demo地址</a></h4>
+    <h3 id="使用方式how-to-use">使用方式(how to use)</h3>
+<pre><code>$(&quot;#bs-treeetable&quot;).bstreeselect({
+    data:data,//tree data order by parentid
+    treenodeselect:function(data){
+    console.log(JSON.stringify(data));
+    },
+    onclear:function(){
+    console.log(&quot;clear&quot;);
+    }
+    });</code></pre>
+    <h3 id="对应data数据格式data-format">对应data数据格式(data format)</h3>
+    <p>注意按照pid升序排序(data order by pid asc)</p>
+<pre><code>var data = [
+    {name:&quot;test&quot;,id:1,pid:0,innercode:1},
+    {name:&quot;test&quot;,id:12,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:13,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:14,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:15,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:16,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:17,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:18,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:19,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:20,pid:0,innercode:12},
+    {name:&quot;test&quot;,id:21,pid:0,innercode:12},
+    {name:&quot;test2&quot;,id:2,pid:0,innercode:2},
+    {name:&quot;test3&quot;,id:3,pid:0,innercode:3},
+    {name:&quot;test4&quot;,id:4,pid:1,innercode:4},
+    {name:&quot;test5&quot;,id:5,pid:1,innercode:5},
+    {name:&quot;test6&quot;,id:6,pid:4,innercode:6},
+    {name:&quot;test7&quot;,id:7,pid:4,innercode:7},
+    {name:&quot;test8&quot;,id:8,pid:4,innercode:8},
+    {name:&quot;test9&quot;,id:9,pid:4,innercode:9},
+    {name:&quot;test10&quot;,id:10,pid:6,innercode:10},
+    {name:&quot;test11&quot;,id:11,pid:7,innercode:11},
+    ];</code></pre>
+</div>
+</body>
+</html>
