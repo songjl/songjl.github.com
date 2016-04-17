@@ -9,7 +9,7 @@ function init(){
     var bloglist = [];
     var bloglistEl = document.getElementById("bloglist");
     for(var i=maxnumofpost;i>0;i--){
-        var _href = "posts/post_"+i+".html";
+        var _href = "post/post_"+i+".html";
         var _li = document.createElement("li");
         var _a = document.createElement("a");
         _a.setAttribute("href",_href);
