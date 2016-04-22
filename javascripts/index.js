@@ -1,7 +1,7 @@
 /**
  * Created by windknow on 16/4/17.
  */
-var maxnumofpost = 1;
+var maxnumofpost = 10;
 var blogitem=[
     {title:"基于jquery的批量树表编辑插件",date:"2016-04-22"},
     {title:"基于jquery和bootstrap的下拉树组件",date:"2016-04-16"}
@@ -9,7 +9,7 @@ var blogitem=[
 function init(){
     var bloglist = [];
     var bloglistEl = document.getElementById("bloglist");
-    for(var i=maxnumofpost;i>0;i--){
+    for(var i=blogitem.length;i>0;i--){
         var _href = "post/post_"+i+".html";
         var _li = document.createElement("li");
         var _a = document.createElement("a");
