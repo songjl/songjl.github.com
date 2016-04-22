@@ -3,8 +3,8 @@
  */
 var maxnumofpost = 10;
 var blogitem=[
-    {title:"基于jquery的批量树表编辑插件",date:"2016-04-22"},
-    {title:"基于jquery和bootstrap的下拉树组件",date:"2016-04-16"}
+    {title:"基于jquery和bootstrap的下拉树组件",date:"2016-04-16"},
+    {title:"基于jquery的批量树表编辑插件",date:"2016-04-22"}
 ]
 function init(){
     var bloglist = [];
