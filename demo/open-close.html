@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            width: 1200px;
+            margin:0 auto;
+            padding: 20px;
+            background-color: #eee;
+        }
+        .i{
+            -webkit-transition: all 1.0s ease;
+            transition: all 1.0s ease;
+            transform: translate(0,0);
+        }
+        .i>div{
+            background-color: #FFF;
+            width: 30px;
+            height: 6px;
+            border-radius: 4px;
+            position: absolute;
+
+        }
+        .close,.open{
+            min-height: 20px;
+        }
+        .i-left>div{
+            transform: rotate(45deg);
+        }
+        .i-right>div{
+            transform: rotate(-45deg);
+        }
+        .open .i-left{
+            transform: translate(-9px,0);
+        }
+        .open .i-right{
+            transform: translate(9px,0);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>简单开关效果</h1>
+        <div id="close" class="close">
+            <div class="i i-left">
+                <div></div>
+            </div>
+            <div class="i i-right">
+                <div></div>
+            </div>
+        </div>
+    </div>
+<script >
+    var close = document.getElementById("close");
+    close.addEventListener("click",function(){
+        if(close.classList.contains("open")){
+            close.classList.remove("open")
+        }
+        else{
+            close.classList.add("open");
+        }
+    })
+</script>
+</body>
+</html>

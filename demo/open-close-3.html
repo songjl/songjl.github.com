@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一个小例子</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .content{
+            font-size: 10px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* circle */
+        @-webkit-keyframes circle {
+            0%, 34.999% {
+                -webkit-clip-path: polygon(0 0);
+                clip-path: polygon(0 0);
+                border-color: #e03a72;
+            }
+            54.999% {
+                -webkit-clip-path: polygon(0 0);
+                clip-path: polygon(0 0);
+            }
+            55% {
+                display: block;
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px);
+                clip-path: polygon(125px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px);
+            }
+            57.5% {
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, 125px -125px, 125px -125px, 125px -125px);
+                clip-path: polygon(125px 125px, 375px 125px, 125px -125px, 125px -125px, 125px -125px, 125px -125px);
+            }
+            60% {
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, -125px 125px, -125px 125px);
+                clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, -125px 125px, -125px 125px);
+            }
+            62.5% {
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 125px 375px);
+                clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 125px 375px);
+            }
+            65%, 100% {
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 375px 125px);
+                clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 375px 125px);
+                border-color: #FFF;
+            }
+        }
+        @keyframes circle {
+            0%, 34.999% {
+                -webkit-clip-path: polygon(0 0);
+                clip-path: polygon(0 0);
+            }
+            54.999% {
+                -webkit-clip-path: polygon(0 0);
+                clip-path: polygon(0 0);
+            }
+            55% {
+                display: block;
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px);
+                clip-path: polygon(125px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px);
+            }
+            57.5% {
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, 125px -125px, 125px -125px, 125px -125px);
+                clip-path: polygon(125px 125px, 375px 125px, 125px -125px, 125px -125px, 125px -125px, 125px -125px);
+            }
+            60% {
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, -125px 125px, -125px 125px);
+                clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, -125px 125px, -125px 125px);
+            }
+            62.5% {
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 125px 375px);
+                clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 125px 375px);
+            }
+            65%, 100% {
+                -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 375px 125px);
+                clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 375px 125px);
+            }
+        }
+        /*middle*/
+        @-webkit-keyframes line-middle {
+            0%, 34.999% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+            40.5% {
+                -webkit-transform: translateX(-18.72px);
+                transform: translateX(-18.72px);
+            }
+            55% {
+                -webkit-transform: translateX(80px);
+                transform: translateX(80px);
+            }
+            57.5% {
+                opacity: 0;
+            }
+            65%, 100% {
+                -webkit-transform: translateX(1024px);
+                opacity: 0;
+            }
+        }
+        @keyframes line-middle {
+            0%, 34.999% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+            40.5% {
+                -webkit-transform: translateX(-18.72px);
+                transform: translateX(-18.72px);
+            }
+            55% {
+                -webkit-transform: translateX(80px);
+                transform: translateX(80px);
+            }
+            57.5% {
+                opacity: 0;
+            }
+            65%, 100% {
+                opacity: 0;
+            }
+        }
+        @-webkit-keyframes line-top {
+            0%, 34.999% {
+                -webkit-transform: translateX(0) translateX(0) translateY(0) rotate(0deg);
+                transform: translateX(0) translateX(0) translateY(0) rotate(0deg);
+            }
+            49.5% {
+                -webkit-transform: translateX(-15.6px) translateY(0) rotate(10deg);
+                transform: translateX(-15.6px) translateY(0) rotate(10deg);
+            }
+            65%, 100% {
+                -webkit-transform: translateX(0) translateY(40px) rotate(-135deg);
+                transform: translateX(0) translateY(40px) rotate(-135deg);
+            }
+        }
+        @keyframes line-top {
+            0%, 34.999% {
+                -webkit-transform: translateX(0) translateX(0) translateY(0) rotate(0deg);
+                transform: translateX(0) translateX(0) translateY(0) rotate(0deg);
+            }
+            49.5% {
+                -webkit-transform: translateX(-15.6px) translateY(0) rotate(10deg);
+                transform: translateX(-15.6px) translateY(0) rotate(10deg);
+            }
+            65%, 100% {
+                -webkit-transform: translateX(0) translateY(40px) rotate(-135deg);
+                transform: translateX(0) translateY(40px) rotate(-135deg);
+            }
+        }
+        @-webkit-keyframes line-bottom {
+            0%, 34.999% {
+                -webkit-transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(0deg);
+            }
+            49.5% {
+                -webkit-transform: translateX(-15.6px) translateY(0) rotate(-10deg);
+                transform: translateX(-15.6px) translateY(0) rotate(-10deg);
+            }
+            65%, 100% {
+                -webkit-transform: translateX(0) translateY(-40px) rotate(135deg);
+                transform: translateX(0) translateY(-40px) rotate(135deg);
+            }
+        }
+        @keyframes line-bottom {
+            0%, 34.999% {
+                -webkit-transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(0deg);
+            }
+            49.5% {
+                -webkit-transform: translateX(-15.6px) translateY(0) rotate(-10deg);
+                transform: translateX(-15.6px) translateY(0) rotate(-10deg);
+            }
+            65%, 100% {
+                -webkit-transform: translateX(0) translateY(-40px) rotate(135deg);
+                transform: translateX(0) translateY(-40px) rotate(135deg);
+            }
+        }
+        .content div{
+            -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+            -webkit-animation-timing-function: cubic-bezier(0.5, 0, 0.5, 0);
+            animation-timing-function: cubic-bezier(0.5, 0, 0.5, 0);
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+        }
+        .circle{
+            border:solid .3em #00CCFF;
+            border-radius: 100%;
+            width: 250px;
+            height: 250px;
+            -webkit-animation-name: circle;
+            animation-name: circle;
+        }
+
+        .line{
+            width: 150px;
+            height: 3px;
+            background-color: #00CCFF;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left: -75px;
+        }
+        .line-middle{
+            -webkit-animation-name: line-middle;
+            animation-name: line-middle;
+            margin-top: 0px;
+        }
+        .line-top{
+            margin-top:-40px;
+            -webkit-animation-name: line-top;
+            animation-name: line-top;
+        }
+        .line-bottom{
+            -webkit-animation-name: line-bottom;
+            animation-name: line-bottom;
+            margin-top:40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="content" class="content">
+        <div class="circle">
+        </div>
+        <div class="line line-top"></div>
+        <div class="line line-middle"></div>
+        <div class="line line-bottom"></div>
+    </div>
+<script >
+    var element = document.getElementById("content");
+    var i = 0;
+    element.addEventListener("click",function(){
+        if(i==0){
+            alert("你是来看动画特效的,你点我干嘛!");
+        }
+        else if(i==1){
+            alert("信不信连点5次有福利")
+        }
+        else if(i==5){
+            alert("傻子,让你点五次就点五次啊!你敢不敢点50次")
+        }
+        else if(i>=50){
+            alert("你赢了,找我要红包去吧!我被你的执着感动了")
+        }
+        i++;
+    })
+</script>
+</body>
+</html>

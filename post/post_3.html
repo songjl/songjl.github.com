@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>风知的博客 songjl.github.io by songjl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body class="markdown-body">
+<div class="container">
+<h1 id="css3实现一个号称炫酷的开关效果">css3实现一个号称炫酷的开关效果</h1>
+<p>前些天看了别人分享的一篇“这些UI动效设计碉堡了” <br>看了看原文,卧槽居然是gif图,我还承诺说能用到实际项目之中,无奈只好自己来实现实现看看 <br>
+    先来一个简单的样例 来看看最终效果: <br></p>
+<h2><a href="../demo/open-close-3.html">点我看例子</a></h2>
+<h2 id="实现过程">实现过程</h2>
+<ul>
+    <li><p>第一步:来来来,先画一个圆</p>
+        <pre><code><div class="circle">
+
+        </div>
+        .circle{ border:solid .3em #00CCFF; border-radius: 100%; width: 250px; height: 250px; }</code></pre>
+    </li>
+    <li><p>第二步:给圆加一个动画效果吧</p>
+        <pre><code>.circle{
+            -webkit-animation-name: circle; animation-name: circle;
+            }
+            @keyframes circle {
+                0%, 34.999% {
+                    -webkit-clip-path: polygon(0 0);
+                    clip-path: polygon(0 0);
+                }
+                54.999% {
+                    -webkit-clip-path: polygon(0 0);
+                    clip-path: polygon(0 0);
+                }
+                55% {
+                    -webkit-clip-path: polygon(125px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px);
+                    clip-path: polygon(125px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px, 375px 125px);
+                }
+                57.5% {
+                    -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, 125px -125px, 125px -125px, 125px -125px);
+                    clip-path: polygon(125px 125px, 375px 125px, 125px -125px, 125px -125px, 125px -125px, 125px -125px);
+                }
+                60% {
+                    -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, -125px 125px, -125px 125px);
+                    clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, -125px 125px, -125px 125px);
+                }
+                62.5% {
+                    -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 125px 375px);
+                    clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 125px 375px);
+                }
+                65%, 100% {
+                    -webkit-clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 375px 125px);
+                    clip-path: polygon(125px 125px, 375px 125px, 125px -125px, -125px 125px, 125px 375px, 375px 125px);
+                }
+            }</code></pre>
+    </li>
+    <li><p>第三步:接着来画这三道杠(学渣表示小学时只混到过一道杠,完全不懂三道杠是什么概念)</p>
+        <p>画三个div 分别class是line-top line-middle line-bottom</p>
+        <pre><code>        .line{
+            width: 150px;
+            height: 3px;
+            background-color: #00CCFF;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left: -75px;
+        }
+        .line-middle{ margin-top: 0px; }
+        .line-top{ margin-top:-40px; }
+        .line-bottom{ margin-top:40px; }
+        </code></pre>
+    </li>
+    <li><p>第四步:给中间一道杠加一个消失的动画</p>
+        <pre><code>
+            @keyframes line-middle {
+                0%, 34.999% {
+                    -webkit-transform: translateX(0);
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                40.5% {
+                    -webkit-transform: translateX(-18.72px);
+                    transform: translateX(-18.72px);
+                }
+                55% {
+                    -webkit-transform: translateX(80px);
+                    transform: translateX(80px);
+                }
+                57.5% {
+                    opacity: 0;
+                }
+                65%, 100% {
+                    opacity: 0;
+                }
+            }
+        </code></pre>
+    </li>
+    <li><p>第五步:再把上下两道杠加个动画效果,从两道杠边成一个叉叉</p>
+        <pre><code>
+            @keyframes line-top {
+                0%, 34.999% {
+                    -webkit-transform: translateX(0) translateX(0) translateY(0) rotate(0deg);
+                    transform: translateX(0) translateX(0) translateY(0) rotate(0deg);
+                }
+                49.5% {
+                    -webkit-transform: translateX(-15.6px) translateY(0) rotate(10deg);
+                    transform: translateX(-15.6px) translateY(0) rotate(10deg);
+                }
+                65%, 100% {
+                    -webkit-transform: translateX(0) translateY(40px) rotate(-135deg);
+                    transform: translateX(0) translateY(40px) rotate(-135deg);
+                }
+            }
+            @keyframes line-bottom {
+                0%, 34.999% {
+                    -webkit-transform: translateY(0) rotate(0deg);
+                    transform: translateY(0) rotate(0deg);
+                }
+                49.5% {
+                    -webkit-transform: translateX(-15.6px) translateY(0) rotate(-10deg);
+                    transform: translateX(-15.6px) translateY(0) rotate(-10deg);
+                }
+                65%, 100% {
+                    -webkit-transform: translateX(0) translateY(-40px) rotate(135deg);
+                    transform: translateX(0) translateY(-40px) rotate(135deg);
+                }
+            }
+
+        </code></pre>
+    </li>
+    <li><p>
+        最后:关于浏览器兼容性
+    </p>
+        <p>让IE什么的都去死吧,老子只想兼容高版本的浏览器,牛逼你打死我啊!!!!!</p>
+    </li>
+</ul>
+    <div id="weixinshared" style="cursor: pointer">分享到微信</div>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+
+
+    <script>
+        var element = document.getElementById("weixinshared");
+        element.addEventListener("click",function(){
+            wx.onMenuShareTimeline({
+            title: '一个css的例子', // 分享标题
+            link: document.location.href, // 分享链接
+            imgUrl: '', // 分享图标
+            success: function () {
+                alert("分享成功");
+            },
+            cancel: function () {
+            // 用户取消分享后执行的回调函数
+            }
+            });
+        })
+    </script>
+</div>
+</body>
+</html>
