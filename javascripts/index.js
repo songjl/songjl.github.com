@@ -5,7 +5,8 @@ var maxnumofpost = 10;
 var blogitem=[
     {title:"基于jquery和bootstrap的下拉树组件",date:"2016-04-16",tag:"jquery,bootstrap"},
     {title:"基于jquery的批量树表编辑插件",date:"2016-04-22",tag:"jquery,bootstrap"},
-    {title:"css3实现一个超炫的开关效果",date:"2016-04-27",tag:"css3"}
+    {title:"css3实现一个超炫的开关效果",date:"2016-04-27",tag:"css3"},
+    {title:"基于jquery的地区选择组件",date:"2016-06-01",tag:"jquery areaselect"}
 ]
 function init(){
     var bloglist = [];

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3实现一个炫酷的开关效果</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body class="markdown-body">
+<div class="container">
+    <h2 id="css3实现一个号称炫酷的开关效果">基于jquery的地区选择控件,仿京东地区选择的方式</h2>
+    <h5>人懒的时候什么真实没办法,直接看效果吧. <br>
+        先来一个简单的样例 来看看最终效果: <br></h5>
+    <h3><a href="../demo/jquery-areaselect.html">点我看例子</a></h3>
+    <h5>
+        具体怎么用,看<a href="https://github.com/songhlc/jquery.areaselect">项目地址</a>
+    </h5>
+    <h5>
+        代码什么仅供参考,只是用来完善产品组件,后续会看心情慢慢优化 <br>
+        这玩意儿我保证能用,不好用你可以试着来打我.
+    </h5>
+    <div id="weixinshared" style="cursor: pointer">分享到微信</div>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+
+
+    <script>
+        var element = document.getElementById("weixinshared");
+        element.addEventListener("click",function(){
+            wx.onMenuShareTimeline({
+                title: '一个css的例子', // 分享标题
+                link: document.location.href, // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                    alert("分享成功");
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+    </script>
+</div>
+</body>
+</html>
