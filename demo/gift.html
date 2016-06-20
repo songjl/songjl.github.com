@@ -10,11 +10,35 @@
     </style>
 </head>
 
-<body>
+<body onload="load()">
 
-<video src="gift.m4v" controls="controls" autoplay="autoplay">
+<video id="video" src="gift.m4v" controls="controls">
     您的浏览器不支持 video 标签。
 </video>
-<audio id="player" autoplay="autoplay" title="身边" meta="身边" src="side.m4a"></audio>
+<audio id="audio" title="身边" meta="身边" src="side.m4a"></audio>
+<script >
+    function load(){
+        /*音乐*/
+        var audio = document.getElementById('audio');
+        var isPlaying = false;
+        function playAudio() {
+            var audio = document.getElementById('audio');
+            var video = document.getElementById('video');
+            audio.play();
+            video.play();
+            isPlaying = true;
+        }
+        //$(function(){
+        playAudio();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                network = e.err_msg.split(":")[1];  //结果在这里
+                playAudio();
+            });
+        }, false);
+        //})
+    }
+
+</script>
 </body>
 </html>
