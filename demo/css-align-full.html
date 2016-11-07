@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平垂直居中场景demo</title>
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        html{
+            font-size: 20px;
+        }
+        body{
+            font-size: 12px;
+        }
+        .demo1{
+            width: 500px;
+        }
+        .demo1 .title{
+            text-align: center;
+        }
+        .demo1 .content{
+            text-indent: 19px;
+        }
+        .demo2 table{
+            width: 400px;
+            border:solid 1px #eee;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        .demo2 table th{
+            width: 25%;
+        }
+        .demo2 table td{
+            border:solid 1px #eee;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .table-like{
+            display: table;
+            width: 400px;
+        }
+        .table-cell-like{
+            width: 25%;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .demo3{
+            position: relative;
+            width: 500px;
+            height: 300px;
+            border:solid 1px #eee;
+        }
+        .demo3 .modal-ab{
+            position: absolute;
+            top:50%;
+            left:50%;
+            width: 200px;
+            height: 120px;
+            border:solid 1px #000000;
+            text-align: left;
+            padding:10px;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .demo4 .big{
+            font-size: 20px;
+        }
+        .demo4 .big{
+            vertical-align: middle;
+        }
+        h1{
+            margin-top:40px;
+        }
+    </style>
+</head>
+<body>
+<h1>
+    场景1
+</h1>
+<article class="demo1">
+    <p class="title">我是title,我呀居中</p>
+    <p class="content">我是文章的内容，我通常来说会有多段去显示,我是文章的内容，我通常来说会有多段去显示,我是文章的内容，我通常来说会有多段去显示,我是文章的内容，我通常来说会有多段去显示</p>
+</article>
+<h1>
+    场景2
+</h1>
+<div class="demo2">
+    <table>
+        <thead>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>个人描述</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>张三</td>
+            <td>18</td>
+            <td>男</td>
+            <td>我通常来说会超过一行所能显示的内容</td>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>18</td>
+            <td>男</td>
+            <td>我通常来</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<h1>场景2 table-cell like(IE8+)</h1>
+<div class="demo-cell">
+    <div class="table-like">
+        <div class="table-cell-like">
+            姓名
+        </div>
+        <div class="table-cell-like">
+            年龄
+        </div>
+        <div class="table-cell-like">
+            性别
+        </div>
+        <div class="table-cell-like">
+            描述
+        </div>
+    </div>
+    <div class="table-like">
+        <div class="table-cell-like">
+张三
+        </div>
+        <div class="table-cell-like">
+18
+        </div>
+        <div class="table-cell-like">
+男
+        </div>
+        <div class="table-cell-like">
+我要超过两行了哦我要超过两行了哦我要超过两行了哦
+        </div>
+    </div>
+</div>
+<h1>demo3 position:absolute/fixed(IE9+)</h1>
+<div class="demo3">
+    <div class="modal-ab">
+        假设我是一个弹出的模态框 <br>如果当弹出框高度和宽度是固定值的时候,<br>可以使用 <br>margin-left:-弹框width%;<br>
+        margin-top:-弹框height%; <br>来支持ie8.
+    </div>
+</div>
+<h1>场景4图标和文字对齐</h1>
+<h2>图标大 文字小</h2>
+<div class="demo4">
+    <span class="fa fa-edit big" ></span><span class="small">我是文字</span>
+</div>
+<h2>图标小 文字大</h2>
+<div class="demo4">
+    <span class="fa fa-edit small"></span><span class="big">我是文字</span>
+</div>
+
+<p>解析:inline-block的vertical-align默认是baseline;同时也可以用float来解决</p>
+</body>
+</html>
