@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KO components in loops</title>
+    <script src="//cdn.bootcss.com/knockout/3.4.1/knockout-min.js"></script>
+</head>
+<body>
+<ul data-bind="foreach: { data: categories, as: 'category' }">
+    <li>
+        <my-component params="{title: category.title,content:category.content}">
+
+        </my-component>
+        <ul data-bind="foreach: { data: items, as: 'item' }">
+            <li>
+                <span data-bind="text: category.name"></span>:
+                <span data-bind="text: item"></span>
+
+            </li>
+        </ul>
+    </li>
+</ul>
+<script >
+        var viewModel = {
+            categories: ko.observableArray([
+                { name: 'Fruit', items: [ 'Apple', 'Orange', 'Banana' ] ,title:"1",content:2},
+                { name: 'Vegetables', items: [ 'Celery', 'Corn', 'Spinach' ],title:"2",content:3 }
+            ])
+        };
+
+
+        function createViewModel(params) {
+            this.title = params.title;
+            this.content = params.content;
+        }
+        ko.components.register('my-component', {
+                viewModel: createViewModel,
+                template: "test<div data-bind='text:title'></div><div data-bind='text:content'></div>"
+        });
+        ko.applyBindings(viewModel);
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>Flex弹性布局</title>
+    <style>
+        body{
+            margin:0;
+            padding: 0;
+        }
+        .flexbox-container{
+            max-width: 400px;
+            border: solid 1px #ddd;
+            display: -ms-flex;
+            display: -webkit-flex;
+            display: flex;
+            background:#eee;
+        }
+        .flexbox-container > div {
+            background:#fff;
+            position: relative;
+            height: 100%;
+        }
+        .left{
+            width: 25%;
+        }
+        .right{
+            border-left:solid 1px #ddd;
+            width: 75%;
+        }
+    </style>
+</head>
+<body>
+    <code>
+        <!--注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。-->
+        .flexbox-container{
+            display: -ms-flex;
+            display: -webkit-flex;
+            display: flex;
+            background:#eee;
+        }
+    </code>
+    <div class="box flexbox-container">
+        <div class="flexbox-item left">
+            <h3>Column 1</h3>
+        </div>
+        <div class="flexbox-item right">
+            <h3>Column 2</h3>
+        </div>
+    </div>
+</body>
+</html>

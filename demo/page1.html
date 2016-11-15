@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <script src="jquery.js"></script>
+    <style>
+        .approve{
+            padding:10px;
+            color:#333;
+            background-color: #FFF;
+        }
+        .approve div{
+            background-color: #FFF;
+        }
+        .approve .hr{
+            background-color: #ddd;
+            height: 5px;
+            margin: 0 -15px;
+        }
+        .approve ul{
+            list-style: none;
+        }
+        .approve .app-title{
+            color:#333;
+            padding:10px 0;
+            font-weight: bolder;
+            font-size:16px;
+        }
+        .approve .m-r{
+            margin-right:10px;
+        }
+        .approve .m-t{
+            margin-top:10px;
+        }
+        .approve .m-t{
+            margin-bottom: 10px;
+        }
+        .approve .text-right{
+            text-align: right;
+        }
+        .approve .p-t{
+            padding-top: 20px;
+        }
+        .approve .b-b-sm{
+            padding-bottom: 10px;
+            border-bottom: solid 1px #eee;
+        }
+        .approve .oneline{
+            height: 20px;
+            overflow: hidden;
+        }
+        .approve .multiline{
+            height: 58px;
+        }
+        .approve .heightfull{
+            height:100%;
+        }
+        .approve .price{
+            color:red;
+        }
+        .approve .app-label{
+            color:#666;
+        }
+        .approve .querymore{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="approve-bg">
+    <div class="approve">
+        <div class="app-title">
+            <span>云采超市订单审批 201611111006</span>
+        </div>
+        <div class="row b-b-sm">
+            <div class="col-sm-6">
+                <span class="app-label">提交人:</span><span class="m-r">张三</span>
+                <span class="app-label">提交日期:</span><span>2016-11-13</span>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button class="btn btn-primary" type="button">通过</button>
+                <button class="btn btn-default" type="button">驳回</button>
+            </div>
+        </div>
+        <div class="row m-t oneline">
+            <div class="col-sm-2">
+                <span class="app-label">审批历史:</span>
+            </div>
+            <div class="col-sm-8">
+                <ul>
+                    <li>今天 xxx 审批通过</li>
+                    <li>今天 xxx1 审批通过</li>
+                    <li>今天 xxx2 审批通过</li>
+                </ul>
+            </div>
+            <div class="col-sm-2 text-right">
+                <span class="querymore">查看更多</span>
+            </div>
+        </div>
+        <div class="hr"></div>
+        <div class="row m-t m-b oneline multiline">
+            <div class="col-sm-10">
+                <div>
+                    <span class="app-label">订单号:</span><span>201601200</span>
+                </div>
+                <div>
+                    <span class="app-label">采购方:</span><span>用友网络科技股份有限公司 采购办公室 张三</span>
+                </div>
+                <div>
+                    <span class="app-label">收货方:</span><span>用友网络科技股份有限公司 采购办公室 张三</span>
+                </div>
+                <div>
+                    <span class="app-label">供应商:</span><span>史泰博</span>
+                </div>
+            </div>
+            <div class="col-sm-2 text-right">
+                <span class="querymore">查看更多</span>
+            </div>
+        </div>
+        <div class="hr"></div>
+        <div class="row b-b-sm">
+                <div class="col-sm-6">
+                    <span class="app-label">商品数</span>
+                    <span class="price">10</span>
+                    <span class="app-label">种</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <span class="app-label">订单总额:</span>
+                    <span class="price">¥:1000000.00</span>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-sm-8">
+                    <span>的理想啊爽肤水</span><br>
+                    <span class="app-label">规格:</span><span>黑色A4</span><br>
+                    <span class="app-label">采购用途:</span><span>办公</span>
+                </div>
+                <div class="col-sm-4 text-right price">
+                    <span>¥45</span><br>
+                    <span>x10</span><br>
+                    <span>¥45</span>
+                </div>
+            </div>
+    </div>
+    <script>
+        $(".querymore").on("click",function(){
+            var el = $(this).parents(".oneline");
+            if(el.hasClass("heightfull")){
+                el.removeClass("heightfull")
+                $(this).text("查看更多")
+            } else{
+                el.addClass("heightfull")
+                $(this).text("收起")
+            }
+        })
+    </script>
+</div>
+</body>
+</html>
