@@ -104,62 +104,72 @@
 </head>
 <body>
 
-	<div class="container">
-		<h5>单列维护树表</h5>
-		<div id="bs-treeetable" class="treetable">
-			加载数据中...
-		</div>
-		<br>
-		<h5>多列树表维护</h5>
-		<div id="bs-ml-treetable" class="treetable">
-			加载数据中...
-		</div>
+<div class="container">
+	<h5>单列维护树表</h5>
+	<div id="bs-treeetable" class="treetable">
+		加载数据中...
 	</div>
+	<br>
+	<h5>多列树表维护</h5>
+	<div id="bs-ml-treetable" class="treetable">
+		加载数据中...
+	</div>
+</div>
 
 
 
-	<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script type="text/javascript" src="jquery.edittreetable.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="jquery.edittreetable.js"></script>
+<script type="text/javascript">
 	var data = [{
 		id:1,name:"用友网络科技股份有限公司",pid:0,innercode:"1A"
 	},
-	{
-		id:2,name:"云应用孵化中心",pid:1,innercode:"1A2A"
-	},
-	{
-		id:6,name:"云应用孵化中心",pid:1,innercode:"1A3A"
-	},
-	{
-		id:4,name:"云应用孵化中心",pid:2,innercode:"1A4A"
-	},
-	{
-		id:5,name:"云应用孵化中心",pid:4,innercode:"1A5A"
-	},
-	{
-		id:3,name:"阿里巴巴国内事业部",pid:0,innercode:"1A6A"
-	}];
+		{
+			id:2,name:"云应用孵化中心",pid:1,innercode:"1A2A"
+		},
+		{
+			id:6,name:"云应用孵化中心",pid:1,innercode:"1A3A"
+		},
+		{
+			id:4,name:"云应用孵化中心",pid:2,innercode:"1A4A"
+		},
+		{
+			id:5,name:"云应用孵化中心",pid:4,innercode:"1A5A"
+		},
+		{
+			id:3,name:"阿里巴巴国内事业部",pid:0,innercode:"1A6A"
+		}];
 	/*目前默认最大层级是四级（不包含根节点）*/
 	$("#bs-treeetable").bstreetable({
-		data:data,
-		maintitle:"公司名称",
-		nodeaddCallback:function(data,callback){
-			alert(JSON.stringify(data));
-			//do your things then callback 新增的时候会返回一个字段叫pinnercode,表示父节点的innercode
-			callback({id:18,name:data.name,innercode:"ttttt",pid:data.pid});
-		},
-		noderemoveCallback:function(data,callback){
-			alert(JSON.stringify(data));
-			//do your things then callback
-			callback();
-		},
-		nodeupdateCallback:function(data,callback){
-			alert(JSON.stringify(data));
-			//do your things then callback
-			callback();
-		}
-	}
+				data:data,
+				maintitle:"公司名称",
+				nodeaddCallback:function(data,callback){
+					alert(JSON.stringify(data));
+					//do your things then callback 新增的时候会返回一个字段叫pinnercode,表示父节点的innercode
+					callback({id:18,name:data.name,innercode:"ttttt",pid:data.pid});
+				},
+				noderemoveCallback:function(data,callback){
+					alert(JSON.stringify(data));
+					//do your things then callback
+					callback();
+				},
+				nodeupdateCallback:function(data,callback){
+					alert(JSON.stringify(data));
+					//do your things then callback
+					callback();
+				},
+				nodeaddcheck:function(id,callback){
+					console.log(id);
+					if(id>0){
+						console.log("ok");
+						//如果允许就调用callback
+						callback();
+					} else{
+						console.log("error");
+					}
+				}
+			}
 	);
 
 	$("#bs-ml-treetable").bstreetable({
@@ -184,6 +194,6 @@
 			{title:"innercode",key:"innercode",type:"input"}
 		]//{title:"列名",key:"",type:"input"} input表示是输入框
 	})
-	</script>
+</script>
 </body>
 </html>
