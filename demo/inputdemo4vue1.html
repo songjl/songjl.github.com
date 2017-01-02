@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input输入框for中文输入法</title>
+    <script src="vue-1.js "></script>
+    <style>
+        .div{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <label for="">监听onchange事件</label>
+        <input type="text" v-model="changetext" v-on:change="change"  placeholder="请试试中文输入法和英文输入法">
+        <div>
+            onchange输入值:{{changevalue}}
+        </div>
+        <label for="">keydown事件</label>
+        <input type="text" v-model="keydowntext" @keydown="keydown" placeholder="请试试中文输入法和英文输入法">
+        <div>
+            keydown输入值:{{keydownvalue}}
+        </div>
+        <label for="">监听input事件,@input="input"(仍旧无法监听组合事件)</label>
+        <input type="text" v-model="inputtext"  @input="input" placeholder="请试试中文输入法和英文输入法">
+        <div>
+            input输入值:{{inputvalue}}
+        </div>
+        <label for="">input+composition 监听compositionend事件,@compositionend="compositionend"</label>
+        <input type="text" v-model="compositiontext" @input="compositioninput" @compositionend="compositionend" placeholder="请试试中文输入法和英文输入法">
+        <div>
+            input输入值:{{compositionvalue}}
+        </div>
+    </div>
+    <script >
+        new Vue({
+            el: '#app',
+            data: {
+                inputvalue: '',
+                inputtext: '',
+                changevalue: '',
+                changetext: '',
+                keydownvalue: '',
+                keydowntext: '',
+                compositiontext: '',
+                compositionvalue: ''
+            },
+            methods: {
+                input: function (val) {
+                    console.log("input:" + this.inputtext)
+                    this.inputvalue = this.inputtext
+                },
+
+                change: function (val) {
+                    console.log("change:" + this.changetext)
+                    this.changevalue = this.changetext
+                },
+                keydown: function (val) {
+                    console.log("keydown:" + this.keydowntext)
+                    this.keydownvalue = this.keydowntext
+                },
+                compositioninput: function (val) {
+                    if(this.compositionvalue != this.compositiontext) {
+                        console.log("do query 2:" + this.compositiontext)
+                        this.compositionvalue = this.compositiontext
+                    }
+                },
+                compositionend: function(val) {
+                    console.log("do query:" + this.compositiontext)
+                    this.compositionvalue = this.compositiontext
+                }
+            }
+        })
+    </script>
+</body>
+</html>
