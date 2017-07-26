@@ -8,11 +8,11 @@ var viewModel = {
   id: ko.observable(''),
   test: ko.observable('ggg'),
   save: function (msg) {
-    let validator = window.app.compsValidateMultiParam({element: window.$('body')[0]})
+    var validator = window.app.compsValidateMultiParam({element: window.$('body')[0]})
     if (validator.passed) {
       window.alert('save me')
     } else {
-      for (let i = 0; i < validator.notPassedArr.length; i++) {
+      for (var i = 0; i < validator.notPassedArr.length; i++) {
         validator.notPassedArr[i].comp.doValidate()
       }
     }
@@ -35,7 +35,7 @@ var viewModel = {
     }
   ]),
   index: ko.observable(0),
-  statusChange (status) {
+  statusChange: function (status) {
     console.log(status)
   },
   paginationmodel: new window.u.DataTable({
@@ -149,10 +149,10 @@ var viewModel = {
       ucurrency: {curSymbol: '￥'}
     }
   }),
-  sizeChange (obj) {
+  sizeChange: function (obj) {
     console.log(obj)
   },
-  pageChange (obj) {
+  pageChange: function (obj) {
     console.log(obj)
   }
 }
@@ -196,7 +196,7 @@ var treedata = [{
 }]
 viewModel.treemodel.removeAllRows()
 viewModel.treemodel.setSimpleData(treedata)
-let paginationData = [
+var paginationData = [
   {
     id: 1,
     name: '2'
